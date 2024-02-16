@@ -11,6 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.cdnfonts.com/css/amazon-ember" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./src/styles/slick.css" />
+  <link rel="stylesheet" type="text/css" href="./src/styles/slick-theme.css" />
 
 
   <title>Prime video: Donnie Darko</title>
@@ -47,7 +49,7 @@
             <span class="font-grey">IMDb 8,0</span>
             <span class="font-grey">1h 53min</span>
             <span class="font-grey">2003</span>
-            <span><img src="./img/14anos.png" alt="classficação indicativa +14" width="20px" height="20px"></span>
+            <span><img src="./src/img/14anos.png" alt="classficação indicativa +14" width="20px" height="20px"></span>
           </div>
           <ul class="sub-content">
             <li class="font-grey" style="text-decoration: underline; font-weight: bold; color: #fff;">Terror</li>
@@ -84,10 +86,51 @@
   </main>
 
   <section class="color-bg">
-    <div class="container-hero">
-      <div class="filmes-detalhes">
-        <p class="font-grey">Relacionados</p>
-        <p class="font-grey">Detalhes</p>
+    <div class="filmes-detalhes">
+      <button id="btn1" class="ativo" onclick="openRelacionados()">Relacionados</button>
+      <button id="btn2" onclick="openDetalhes()">Detalhes</button>
+    </div>
+    <div id="content1" class="relacionados">
+      <div class="carousel">
+        <div><img src="src/img/filmes/godfather.webp" alt="Imagem 1"></div>
+        <div><img src="src/img/filmes/amelie.jpg" alt="Imagem 2"></div>
+        <div><img src="src/img/filmes/killbill.jpg" alt="Imagem 3"></div>
+        <div><img src="src/img/filmes/chihiro.webp" alt="Imagem 1"></div>
+        <div><img src="src/img/filmes/bastardosinglorios.jpg" alt="Imagem 2"></div>
+        <div><img src="src/img/filmes/temposmodernos.webp" alt="Imagem 3"></div>
+        <div><img src="src/img/filmes/cidadaokane.webp" alt="Imagem 1"></div>
+        <div><img src="src/img/filmes/pequenamissunshine.webp" alt="Imagem 2"></div>
+        <div><img src="src/img/filmes/devoltaprofuturo.jfif" alt="Imagem 3"></div>
+      </div>
+    </div>
+    <div id="content2" class=" container detalhes">
+      <div class="box-detalhes">
+        <h4 class="font-white " style="font-size: 1.8rem;">Saiba mais</h4>
+        <p class="font-white">Legendas</p>
+        <p class="font-white" style="color:#819795;">Indisponíveis</p>
+      </div>
+      <div class="box-detalhes">
+        <h4 class="font-white " style="font-size: 1.8rem;">diretores</h4>
+        <a href="https://www.primevideo.com/-/pt/search/ref=atv_dp_pd_dir?language=pt_BR&phrase=Richard%20Kelly&ie=UTF8" class="font-white" style="border-bottom: 3px solid #fff; max-width: max-content;" target="_blank noopener">Richard Kelly</a>
+      </div>
+      <div class="box-detalhes">
+        <h4 class="font-white " style="font-size: 1.8rem;">Atores principais</h4>
+        <a href="https://www.primevideo.com/-/pt/search/ref=atv_dp_pd_star?language=pt_BR&phrase=Jake%20Gyllenhaal&ie=UTF8" class="font-white" style="border-bottom: 3px solid #fff; max-width: max-content;" target="_blank noopener">Jake Gyllenhaal</a>
+        <a href="https://www.primevideo.com/-/pt/search/ref=atv_dp_pd_star?language=pt_BR&phrase=Maggie%20Gyllenhaal&ie=UTF8" class="font-white" style="border-bottom: 3px solid #fff; max-width: max-content;" target="_blank noopener">Maggie Gyllenhaal</a>
+      </div>
+      <div class="box-detalhes">
+        <h4 class="font-white " style="font-size: 1.8rem;">Estúdio</h4>
+        <p class="font-white " style="color: #819795;">Entertainment One</p>
+        <p class="font-white " style="padding-top: 100px; color: #819795;">Ao clicar em Reproduzir, você concorda com nossos <a href="https://www.primevideo.com/dv/tou/ref=atv_dp_terms?language=pt_BR" style="border-bottom: 3px solid #fff; max-width: max-content;" target="_blank noopener">Termos de uso.</a></p>
+      </div>
+      <hr>
+      <div class="box-detalhes ">
+        <p class="font-white " style="margin-top: 30px;">Feedback</p>
+        <p class="font-white " style="border-bottom: 3px solid #fff; max-width: max-content;">Enviar feedback</p>
+      </div>
+      <div class="box-detalhes">
+        <p class="font-white ">Suporte</p>
+        <a href="https://www.primevideo.com/help/ref=atv_dp_fb_need_help?language=pt_BR" class="font-white " style="border-bottom: 3px solid #fff; max-width: max-content;">Ajuda</a>
       </div>
     </div>
 
@@ -105,7 +148,11 @@
     </div>
 
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="./src/scripts/slick.min.js"></script>
+  <script src="./src/scripts/carousel.js"></script>
+  <script src="./src/scripts/script.js"></script>
 </body>
 
 </html>
