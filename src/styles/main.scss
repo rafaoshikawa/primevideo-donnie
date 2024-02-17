@@ -6,14 +6,56 @@
   color: white;
   font-family: "Amazon Ember", sans-serif;
 }
+
+// Defina variáveis de largura de tela
+$breakpoints: (
+  "small": 450px,
+  "medium": 992px,
+  "large": 1300px,
+);
+
+@mixin breakpoint($size) {
+  @media only screen and (max-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+#texto-responsivo {
+  display: none;
+  margin: auto 0;
+  p {
+    font-size: 1.3rem;
+    @include breakpoint("small") {
+      font-size: 1rem;
+      max-width: 35ch;
+    }
+  }
+}
+body {
+  @include breakpoint("small") {
+    padding: 0px 15px;
+    background-color: #00050d;
+  }
+}
 body,
 html {
   overflow-x: hidden;
+  background-color: #00050d;
 }
-
+.font-grey {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #747475;
+  @include breakpoint("small") {
+    font-size: 1rem;
+  }
+}
 .font-white {
   font-size: 1.2rem;
   font-weight: bold;
+  @include breakpoint("small") {
+    font-size: 1rem;
+  }
 }
 img {
   display: block;
@@ -21,16 +63,23 @@ img {
 .container {
   max-width: 1024px;
   margin: 0 auto;
+  @include breakpoint("large") {
+    padding: 10px;
+  }
+  @include breakpoint("small") {
+    margin: 0;
+    justify-content: center;
+  }
 }
 
 .header-bg {
   background-color: #00050d;
   .header-container {
-    max-width: 1024px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
   }
-  img {
+  .branding {
     width: 150px;
     height: 30px;
     color: white;
@@ -42,8 +91,11 @@ img {
   }
   .menu {
     display: flex;
-    display: flex;
     gap: 45px;
+    @include breakpoint("large") {
+      display: none;
+      margin: 0 10px;
+    }
   }
   li {
     list-style: none;
@@ -65,27 +117,61 @@ img {
   background-repeat: no-repeat;
   width: 100vw; /* 100% da largura da viewport */
   height: 100vh; /* 100% da altura da viewport */
+  @include breakpoint("large") {
+    background-size: contain;
+    background-position: top;
+    background-color: #00050d;
+  }
   .container-hero {
     height: 100vh;
     max-width: 1200px;
     margin: auto;
     display: grid;
     align-items: center;
+    @include breakpoint("large") {
+      max-width: 90%;
+    }
+    @include breakpoint("medium") {
+      padding-top: 200px;
+      max-width: 85%;
+    }
+    @include breakpoint("small") {
+      margin: 0 10px;
+      justify-content: center;
+    }
   }
   .content {
     display: grid;
     margin: auto 0;
+    @include breakpoint("small") {
+      padding: 0px 20px;
+    }
     h2 {
-      font-size: 4rem;
+      font-size: 3rem;
       font-weight: bold;
       margin-bottom: 30px;
+      @include breakpoint("large") {
+        font-size: 1.98rem;
+      }
     }
+    .descricao {
+      font-size: 1.3rem;
+      max-width: 75ch;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      font-weight: bold;
+    }
+
     p {
       font-size: 1.3rem;
       max-width: 75ch;
       line-height: 1.4;
       margin-bottom: 16px;
       font-weight: bold;
+      @include breakpoint("large") {
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
     }
   }
 
@@ -93,21 +179,37 @@ img {
     display: flex;
     gap: 30px;
     margin-bottom: 10px;
+    @include breakpoint("small") {
+      gap: 20px;
+    }
   }
   .container-box-buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     align-items: center;
+    @include breakpoint("small") {
+      margin-bottom: 50px;
+    }
   }
   .box-disponivel {
     margin-top: 60px;
     border: 3px solid #4a4b4e;
     padding: 20px 30px;
+    @include breakpoint("medium") {
+      max-width: 340px;
+    }
+    @include breakpoint("small") {
+      max-width: 320px;
+    }
 
     p {
       font-size: 1.2rem;
       font-weight: bold;
       max-width: 30ch;
+      @include breakpoint("medium") {
+        max-width: max-content;
+      }
     }
   }
 
@@ -115,7 +217,11 @@ img {
     margin-top: 60px;
     display: flex;
     gap: 10px;
+    @include breakpoint("large") {
+      margin-top: 10px;
+    }
   }
+
   .ball {
     background-color: #4a4b4e94;
     border-radius: 50%;
@@ -125,6 +231,14 @@ img {
     height: 65px;
     cursor: pointer;
     transition: all ease 0.2s;
+    @include breakpoint("medium") {
+      width: 60px;
+      height: 60px;
+    }
+    @include breakpoint("small") {
+      width: 55px;
+      height: 55px;
+    }
 
     &:hover {
       background-color: #fff;
@@ -173,6 +287,12 @@ img {
     text-align: center;
     justify-content: center;
     margin-bottom: 50px;
+    @include breakpoint("medium") {
+      padding-top: 40px;
+    }
+    @include breakpoint("small") {
+      margin-top: 50px;
+    }
 
     button {
       background-color: transparent;
@@ -181,16 +301,40 @@ img {
       cursor: pointer;
       font-size: 1.2rem;
       font-weight: bold;
+      @include breakpoint("large") {
+        margin-top: 20px;
+        padding-top: 150px;
+      }
+      @include breakpoint("medium") {
+        margin-top: 20px;
+      }
+      @include breakpoint("small") {
+        padding: 0px;
+        margin-top: 80px;
+      }
     }
     button.ativo {
       border-bottom: 2px solid white;
+    }
+  }
+  .carousel img {
+    @include breakpoint("large") {
+      max-width: 280px;
+    }
+    @include breakpoint("medium") {
+      width: 250px;
+      height: 150px;
+    }
+
+    @include breakpoint("small") {
+      width: 300px;
+      height: 150px;
     }
   }
 }
 .detalhes {
   display: none;
   gap: 0px;
-  padding-top: 100px;
 
   .box-detalhes {
     display: grid;
@@ -218,15 +362,32 @@ img {
     margin-bottom: 20px;
     li {
       list-style: none;
+      @include breakpoint("small") {
+        font-size: 0.8rem;
+      }
 
       a {
         color: #4fb8f3;
+        @include breakpoint("small") {
+          font-size: 0.8rem;
+        }
 
         &:hover {
-          color: #85d2ff;
+          color: red;
         }
       }
     }
   }
 }
 //lembrar usar maxwidth nas imagens do carrossel para ficar mais responsivo
+
+//header
+@media (max-width: 1024px) {
+  .nav-bar {
+    .menu {
+      display: none;
+    }
+  }
+}
+
+//hero
