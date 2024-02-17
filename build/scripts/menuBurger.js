@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".menu-hamburguer").hide(),$(".menuLine").click(function(){$(".menu-hamburguer").fadeToggle()}),$(".menu-close").click(function(){$(".menu-hamburguer").fadeOut()}),$(".menu-hamburguer a").click(function(){$(".menu-hamburguer").fadeOut()})});

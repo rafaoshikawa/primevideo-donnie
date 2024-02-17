@@ -1,1 +1,1 @@
-$(".carousel").slick({centerMode:!0,centerPadding:"60px",slidesToShow:3,responsive:[{breakpoint:768,settings:{arrows:!1,centerMode:!0,centerPadding:"40px",slidesToShow:3}},{breakpoint:480,settings:{arrows:!1,centerMode:!0,centerPadding:"40px",slidesToShow:1}}]});
+$(".carousel").slick({centerMode:!0,arrows:!0,centerPadding:"20px",slidesToShow:3,responsive:[{breakpoint:768,settings:{arrows:!1,centerMode:!0,centerPadding:"20px",slidesToShow:2}},{breakpoint:480,settings:{arrows:!1,centerMode:!0,centerPadding:"5px",slidesToShow:1}}]});

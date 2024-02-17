@@ -1,6 +1,7 @@
 $(".carousel").slick({
   centerMode: true,
-  centerPadding: "60px",
+  arrows: true,
+  centerPadding: "20px", // Ajuste conforme necessário
   slidesToShow: 3,
   responsive: [
     {
@@ -8,8 +9,8 @@ $(".carousel").slick({
       settings: {
         arrows: false,
         centerMode: true,
-        centerPadding: "40px",
-        slidesToShow: 3,
+        centerPadding: "20px", // Ajuste conforme necessário
+        slidesToShow: 2,
       },
     },
     {
@@ -17,7 +18,7 @@ $(".carousel").slick({
       settings: {
         arrows: false,
         centerMode: true,
-        centerPadding: "40px",
+        centerPadding: "5px", // Ajuste conforme necessário
         slidesToShow: 1,
       },
     },

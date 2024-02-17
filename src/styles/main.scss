@@ -92,9 +92,26 @@ img {
   .menu {
     display: flex;
     gap: 45px;
+    align-items: center;
     @include breakpoint("large") {
       display: none;
       margin: 0 10px;
+    }
+    li {
+      transition: all ease 0.5s;
+    }
+    .search,
+    .profile {
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .menuLine {
+    @include breakpoint("large") {
+      display: block;
     }
   }
   li {
@@ -108,6 +125,38 @@ img {
       color: #fff;
     }
   }
+}
+
+/* menu burguer */
+
+.menu-hamburguer {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #00050d;
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  .box-menu-close {
+    display: flex;
+    gap: 20px;
+  }
+  a {
+    margin-top: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #747475;
+  }
+}
+
+.menu-hamburguer li {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .hero {
@@ -317,21 +366,22 @@ img {
       border-bottom: 2px solid white;
     }
   }
-  .carousel img {
-    @include breakpoint("large") {
-      max-width: 280px;
-    }
-    @include breakpoint("medium") {
-      width: 250px;
-      height: 150px;
-    }
-
-    @include breakpoint("small") {
-      width: 300px;
-      height: 150px;
-    }
-  }
 }
+/* Adicione estilos CSS para o carrossel */
+.carousel {
+  margin: 0 -20px;
+}
+
+/* Estilo para cada slide do carrossel */
+.carousel div {
+  margin: 0 20px; /* Define a margem entre os slides */
+}
+
+/* Estilo para as imagens dentro de cada slide */
+.carousel img {
+  width: 100%;
+}
+
 .detalhes {
   display: none;
   gap: 0px;
@@ -382,11 +432,9 @@ img {
 //lembrar usar maxwidth nas imagens do carrossel para ficar mais responsivo
 
 //header
-@media (max-width: 1024px) {
-  .nav-bar {
-    .menu {
-      display: none;
-    }
+@media (max-width: 1500px) {
+  .menuLine {
+    display: none;
   }
 }
 
